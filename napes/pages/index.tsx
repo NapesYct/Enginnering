@@ -48,7 +48,7 @@ const Home = ({ data, posts, principalOfficers }) => {
           </div>
           :
           <div>
-            {showRegisterModal && <RegisterModal registerModal={setShowRegisterModal} loginModal={setShowLoginModal} />}
+            {showRegisterModal && <RegisterModal registerModal={setShowRegisterModal} loginModal={setShowLoginModal} modal={undefined} />}
 
             {showLoginModal && <LoginModal modal={showLoginModal} registerModal={setShowRegisterModal} loginModal={setShowLoginModal} />}
           </div>
