@@ -14,9 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Layout>
         {notAuth.includes(router.pathname) ? <Component {...pageProps} /> :
 
-          <Protected>
-            <Component {...pageProps} />
-          </Protected>
+          <Component {...pageProps} />
 
         }
 
