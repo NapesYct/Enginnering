@@ -9,10 +9,7 @@ import { AuthContextProvider } from '../context/AuthContext'
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <AuthContextProvider>
-      <Layout>
-        <Component {...pageProps} />
-
-      </Layout>
+      <Component {...pageProps} />
     </AuthContextProvider>
   )
 }
