@@ -10,17 +10,22 @@ import LoginModal from '../components/LoginModal'
 import { useAuth } from '../context/AuthContext';
 import { sanityClient } from '../sanity';
 import * as Realm from 'realm-web';
+import { Data } from '../typings'
 
 
-// interface Executives {
-//   posts: [Data]
-// }
-// interface Principal {
-//   principalOfficers: [Data]
-// }
+interface Executives {
+  posts: [Data]
+}
+interface Principal {
+  principalOfficers: [Data]
+}
 
-// type Props = Executives & Principal & Data
-const Home = ({ data, posts, principalOfficers }) => {
+interface MyData {
+  data: Data
+}
+
+type Props = Executives & Principal & MyData
+const Home = ({ data, posts, principalOfficers }: Props) => {
   const [showRegisterModal, setShowRegisterModal] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(true);
 
@@ -38,7 +43,7 @@ const Home = ({ data, posts, principalOfficers }) => {
 
             {showLoginModal && <LoginModal modal={showLoginModal} registerModal={setShowRegisterModal} loginModal={setShowLoginModal} />} */}
             <Header modalControl={setShowRegisterModal} />
-            <HeroSection data={data} />
+            <HeroSection />
 
             <Departments />
 
