@@ -12,7 +12,7 @@ const Footer = () => {
       </div>
       <div className='grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-8 md:grid-cols-4 lg:grid-col-4 md:gap-9 text-slate-200  py-10 px-10 border-b-2'>
         <div className=''>
-          <h2 className='text-2xl ml-7 font-bold'>About Us</h2>
+          <h2 className='text-2xl ml-7 font-bold'>About NAPES</h2>
           <p className='sm:text-center md:text-start leading-8'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa magni, quidem ipsum dolorem quod tenetur distinctio neque rem quibusdam dicta laborum sed, </p>
         </div>
         <div className=''>
