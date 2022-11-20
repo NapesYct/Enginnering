@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../components/HomeComponents/Header';
 import { addUser } from "../config/mongodb"
 import { useFlutterwave, closePaymentModal } from 'flutterwave-react-v3';
@@ -12,8 +12,9 @@ import { useAuth } from '../context/AuthContext';
 //   apiKey: string,
 // }
 
-const paymentForm = ({ name, flutterwave_key, age, apiKey }) => {
-  const { user } = useAuth()
+const paymentForm = ({ name, age, apiKey }) => {
+  const { user } = useAuth();
+  const [keys, setKeys] = useState("");
   const [data, setData] = useState({
     name: '',
     amount: '1500',
@@ -40,9 +41,22 @@ const paymentForm = ({ name, flutterwave_key, age, apiKey }) => {
   //   }
   // }
 
+  const getKeys = async () => {
+    const res = await fetch(process.env.NEXT_PUBLIC_API_ROUTE + '/');
+    const apiData = await res.json();
+
+    setKeys(apiData.flutterwave_key);
+
+    console.log(apiData.flutterwave_key);
+  }
+
+  useEffect(() => {
+    getKeys()
+  }, [])
+
 
   const config = {
-    public_key: `${flutterwave_key}`,
+    public_key: `${keys}`,
     tx_ref: "NAPES" + Date.now(),
     amount: data.amount,
     currency: 'NGN',
@@ -144,14 +158,3 @@ const paymentForm = ({ name, flutterwave_key, age, apiKey }) => {
 }
 
 export default paymentForm
-
-export async function getServerSideProps() {
-  // const { URL } = process.env;
-
-  const res = await fetch(process.env.NEXT_PUBLIC_API_ROUTE + '/');
-  const apiData = await res.json();
-
-  return {
-    props: { apiData }
-  }
-}
