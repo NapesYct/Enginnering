@@ -9,7 +9,7 @@ const Departments = () => {
 
       <section className='py-10 px-5 md:py-10 md:px-20'>
         <div className='flex justify-between items-center pb-5'>
-          <div className=' w-full text-center md:text-start'>
+          <div className=' w-full md:text-start'>
             <h2 className='font-bold text-lg md:text-3xl capitalize font-sans text-sky-900'>Explore Engineering Departments</h2>
             <p className='font-sans text-sm md:text-lg text-gray-600'>Discover the list of all engineering departments</p>
           </div>

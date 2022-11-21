@@ -83,10 +83,11 @@ export const AuthContextProvider = ({ children }: { children: React.ReactNode })
     try {
       const cred = await createUserWithEmailAndPassword(auth, email, password);
       // addUser(cred.user.uid, data.firstName, data.lastName, `${cred.user.email}`, data.matric, data.department);
-    } catch (error) {
+    } catch (error: any) {
+      console.log(error.message);
 
       setLoader(false);
-      switch (error) {
+      switch (error.message) {
 
         case 'auth/email-already-in-use':
           setErrorMessage("Email already exist");
@@ -107,11 +108,11 @@ export const AuthContextProvider = ({ children }: { children: React.ReactNode })
     try {
       const cred = await signInWithEmailAndPassword(auth, email, password);
       return [];
-    } catch (error) {
+    } catch (error: any) {
       setLoader(false);
       console.log(error);
 
-      switch (error) {
+      switch (error.message) {
         case 'auth/user-not-found':
           setLogErrorMessage("You are not Registered!");
           break;
