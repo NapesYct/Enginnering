@@ -12,9 +12,9 @@ interface Props {
 
 const PrincipalOfficers = ({ officersData }: Props) => {
   return (
-    <section className='bg-slate-100 pt-5'>
+    <section className='bg-slate-100 pt-5 px-5'>
       <div className='flex justify-between items-center md:px-16'>
-        <div className='text-center md:text-start'>
+        <div className='md:text-start w-full text-center'>
           <h2 className='font-bold text-lg md:text-3xl capitalize font-sans text-sky-900'>Meet All Your Principal Officers</h2>
           <p className='font-sans text-sm md:text-lg text-sky-900'>Get to know all your Principal Officers in NAPES</p>
         </div>

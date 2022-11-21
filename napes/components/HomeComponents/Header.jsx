@@ -63,7 +63,7 @@ const Header = ({ modalControl }) => {
         </div>
       </div>
 
-      <div className='sm:hidden z-50 flex w-full h-16 items-center px-6 justify-between bg-cyan-500 shadow-md'>
+      <div className='sm:hidden z-50 flex w-full h-16 items-center px-6 justify-between bg-gray-700 shadow-md'>
         <div onClick={clickMenu} className='space-y-1 cursor-pointer transition duration-200 delay-75 ease-linear'>
           {menuClicked ? <ImCross color='white' size={20} /> : <MdMenu color='white' size={40} />}
         </div>
@@ -76,8 +76,8 @@ const Header = ({ modalControl }) => {
       </div>
 
 
-      <div className={`${menuClicked ? 'translate-x-0' : ' -translate-x-full'} bg-cyan-600 z-50 rounded-tr-sm rounded-br-sm md:hidden text-white font-sans w-full space-x-5 absolute h-screen transition-transform duration-500 ease-in-out`}>
-        <div className='bg-cyan-800 flex items-start space-x-3 py-5'>
+      <div className={`${menuClicked ? 'translate-x-0' : ' -translate-x-full'} bg-blue-900 z-50 rounded-tr-sm rounded-br-sm md:hidden text-white font-sans w-full space-x-5 absolute h-screen transition-transform duration-500 ease-in-out`}>
+        <div className='bg-blue-800 flex items-start space-x-3 py-5'>
           <img className='w-1/4 rounded-full' src="/images/css.jpg" alt="" />
           <div>
             <h2 className='font-bold text-lg text-slate-100'>{oneUser?.firstName} {oneUser?.lastName}</h2>
