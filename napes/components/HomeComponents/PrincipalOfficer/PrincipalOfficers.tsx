@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react'
-import { sanityClient, urlFor } from '../../../sanity';
+import { urlFor } from '../../../sanity';
 import { Data } from '../../../typings';
 import PrincipalOfficersCard from './PrincipalOfficersCard';
 

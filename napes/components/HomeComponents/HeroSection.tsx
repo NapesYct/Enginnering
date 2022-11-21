@@ -65,7 +65,7 @@ const HeroSection = () => {
 
   return (
     <section className='bg-hero bg-no-repeat bg-cover flex justify-center text-white space-x-20 py-10 items-center w-full'>
-      <div className=' flex flex-col justify-around sm:justify-around h-60  w-full px-10 md:w-full lg:w-1/2'>
+      <div className=' flex flex-col justify-around sm:justify-around h-60  w-full px-5 md:px-10 md:w-full lg:w-1/2'>
         <h2 className='md:text-4xl sm:text-2xl text-2xl font-extrabold'>Enjoy Your Right Of Being A NAPESITE</h2>
         <p className='text-lg sm:text-xl my-5 lg:my-0'>Pay your dues to enjoy unlimited benefits from NAPES and avoid denial of semester registration</p>
         <div className='space-x-5 flex items-center '>

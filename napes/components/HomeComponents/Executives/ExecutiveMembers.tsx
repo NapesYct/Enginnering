@@ -18,7 +18,7 @@ const ExecutiveMembers = ({ executiveData }: Props) => {
   return (
     <section className=' bg-slate-800 gap-10 pt-5 pb-10 px-5'>
       <div className='flex justify-between items-center pb-5 md:px-16'>
-        <div className='md:text-start w-full text-center'>
+        <div className='md:text-start w-full'>
           <h2 className='font-bold text-lg md:text-3xl capitalize font-sans text-white'>Meet All Your Executives</h2>
           <p className='font-sans text-sm md:text-lg text-slate-100'>Get to know all your executives in NAPES</p>
         </div>
