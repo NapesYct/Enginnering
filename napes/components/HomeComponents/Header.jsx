@@ -29,8 +29,8 @@ const Header = ({ modalControl }) => {
   }
 
   return (
-    <header className='relative'>
-      <div className='hidden sm:flex bg-white z-10 justify-around items-center'>
+    <header className=''>
+      <div className='hidden sm:flex bg-white z-10 relative justify-around items-center'>
         <div className='hidden md:block'>
           <Image className='' objectFit='contain' src={"/images/napes.png"} width="90" height="90"></Image>
         </div>
@@ -63,7 +63,7 @@ const Header = ({ modalControl }) => {
         </div>
       </div>
 
-      <div className='sm:hidden z-50 flex w-full h-16 items-center px-6 justify-between bg-gray-700 shadow-md'>
+      <div className={`sm:hidden z-50 flex transition ease-linear duration-200 delay-100 sticky bottom-0 w-full h-16 items-center px-6 justify-between ${menuClicked ? "bg-blue-800" : "bg-gray-800"} shadow-md`}>
         <div onClick={clickMenu} className='space-y-1 cursor-pointer transition duration-200 delay-75 ease-linear'>
           {menuClicked ? <ImCross color='white' size={20} /> : <MdMenu color='white' size={40} />}
         </div>

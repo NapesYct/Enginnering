@@ -32,7 +32,7 @@ const news = ({ news }: MyNews) => {
   return (
     <>
       <Header modalControl={undefined} />
-      <div className='mx-20'>
+      <div className='md:mx-20'>
         <div className='grid grid-cols-2 gap-5 mb-10 mt-5'>
           <NewsPageCard title="Peter Thiels VC Found Invests Million into Bitcoin, Market Reacts" author="Olawole" date="jan 25, 2018" />
           <NewsPageCard title="Peter Thiels VC Found Invests Million into Bitcoin, Market Reacts" author="Olawole" date="jan 25, 2018" />

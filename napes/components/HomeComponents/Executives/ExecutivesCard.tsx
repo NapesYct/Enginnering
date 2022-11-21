@@ -13,7 +13,7 @@ const ExecutivesCard: React.FC<Executives> = ({ image, office, name, desc }) => 
       <p className='text-gray-800 text-md mb-3'>{office}</p>
       <h2 className='font-bold text-gray-800 mb-3 text-xl'> {name} </h2>
       <p className='text-gray-700 self-center mb-5 pl-5'>{desc}</p>
-      <button className='bg-green-500 text-white transition hover:bg-red-600 px-5 py-2 rounded'>Learn More</button>
+      <button className='bg-red-500 text-white transition hover:bg-red-800 px-5 py-2 rounded'>Learn More</button>
     </div>
   )
 }

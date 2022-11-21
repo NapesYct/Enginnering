@@ -6,7 +6,7 @@ interface Props {
 }
 
 const getData = () => {
-
+  alert("Feature Coming Soon...")
 }
 
 const DepartmentCard: React.FC<Props> = ({ image, name }) => {

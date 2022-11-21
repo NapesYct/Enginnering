@@ -14,19 +14,10 @@ const executives = ({ executiveData }) => {
     <>
       <Header />
       <div className='bg-slate-600'>
-        <div className='bg-gradient-to-r from-cyan-500 to-blue-500 py-40 flex flex-col items-center justify-center'>
-          <h1 className='text-5xl font-sans text-slate-50'>Meet All Your Executives</h1>
+        <div className='bg-gradient-to-r text-center from-cyan-500 to-blue-500 py-40 flex flex-col items-center justify-center'>
+          <h1 className='text-3xl md:text-5xl font-sans text-slate-50'>Meet All Your Executives</h1>
         </div>
-        <div className='grid grid-cols-1 md:px-16 sm:grid-cols-2 md:grid-cols-4 gap-5 py-10'>
-          {/* <ExecutivesCard image={'/images/headImg.jpg'} title={'President'} name={'John Doe'} desc={'I am the president of the department all over the world'} />
-          <ExecutivesCard image={'/images/headImg.jpg'} title={'President'} name={'John Doe'} desc={'I am the president of the department all over the world'} />
-          <ExecutivesCard image={'/images/headImg.jpg'} title={'President'} name={'John Doe'} desc={'I am the president of the department all over the world'} />
-          <ExecutivesCard image={'/images/headImg.jpg'} title={'President'} name={'John Doe'} desc={'I am the president of the department all over the world'} />
-          <ExecutivesCard image={'/images/headImg.jpg'} title={'President'} name={'John Doe'} desc={'I am the president of the department all over the world'} />
-          <ExecutivesCard image={'/images/headImg.jpg'} title={'President'} name={'John Doe'} desc={'I am the president of the department all over the world'} />
-          <ExecutivesCard image={'/images/headImg.jpg'} title={'President'} name={'John Doe'} desc={'I am the president of the department all over the world'} />
-          <ExecutivesCard image={'/images/headImg.jpg'} title={'President'} name={'John Doe'} desc={'I am the president of the department all over the world'} />
-          <ExecutivesCard image={'/images/headImg.jpg'} title={'President'} name={'John Doe'} desc={'I am the president of the department all over the world'} /> */}
+        <div className='grid grid-cols-1 md:px-16 sm:grid-cols-2 md:grid-cols-4 px-5 gap-5 py-10'>
           {
 
             executiveData.map((data, index) => {

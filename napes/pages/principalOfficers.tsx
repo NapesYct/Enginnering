@@ -15,9 +15,9 @@ const principalOfficers = ({ principalOfficers }: Props) => {
       <Header modalControl={undefined} />
       <div>
         <div className='bg-gradient-to-r from-red-200 to-red-500 py-40 flex flex-col items-center justify-center'>
-          <h1 className='text-5xl font-sans text-slate-50'>Meet All Your Principal Officerss</h1>
+          <h1 className='text-center text-3xl md:text-5xl font-sans text-slate-50'>Meet All Your Principal Officers</h1>
         </div>
-        <div className='grid grid-cols-1 md:px-16 sm:grid-cols-2 md:grid-cols-4 gap-5 font-sans'>
+        <div className='grid grid-cols-1 md:px-16 px-5 sm:grid-cols-2 py-10 md:grid-cols-4 gap-5 font-sans'>
           {
 
             principalOfficers.map((data, index) => {
