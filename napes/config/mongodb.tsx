@@ -5,8 +5,8 @@ export const addUser = async (id: number, fullName: string, email: string, phone
   // const data = await res.json();
 
 
-  const APP_ID = "napes-website-wawfl"
-  const app = new Realm.App({ id: `${APP_ID}` });
+  // const APP_ID = "napes-website-wawfl"
+  const app = new Realm.App({ id: "napes-website-wawfl" });
   const credentials = Realm.Credentials.anonymous();
 
   try {

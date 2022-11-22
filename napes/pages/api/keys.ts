@@ -15,7 +15,7 @@ export default function handler(
   res.status(200).json({
     name: 'Faleye Caleb Oluwafemi',
     age: 23,
-    flutterwave_key: "FLWPUBK_TEST-4bb1c701c887dc7cc715043bcbb7f830-X",
+    flutterwave_key: "FLWPUBK_TEST-738efefa44a514935ca71ed6697f97d8-X",
     apiKey: "napes-website-wawfl"
 
   })

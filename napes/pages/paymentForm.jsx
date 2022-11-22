@@ -4,6 +4,7 @@ import { addUser } from "../config/mongodb"
 import { useFlutterwave, closePaymentModal } from 'flutterwave-react-v3';
 import { useRouter } from 'next/router';
 import { useAuth } from '../context/AuthContext';
+import * as Realm from 'realm-web'
 
 // type Data = {
 //   name: string,
@@ -28,24 +29,24 @@ const paymentForm = ({ name, age, apiKey }) => {
   const router = useRouter();
 
 
-  // const addNapesite = async (id, fullName, email, phone_no, matric_no, department, amount) => {
-  //   const APP_ID = apiData.apiKey;
-  //   const app = new Realm.App({ id: APP_ID });
-  //   const credentials = Realm.Credentials.anonymous();
+  const addNapesite = async (id, fullName, email, phone_no, matric_no, department, amount) => {
+    const APP_ID = keys.apiKey;
+    const app = new Realm.App({ id: APP_ID });
+    const credentials = Realm.Credentials.anonymous();
 
-  //   try {
-  //     const user = await app.logIn(credentials);
-  //     const addUserNow = await user.functions.addNapesite(id, fullName, email, phone_no, matric_no, department, amount)
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
-
+    try {
+      const user = await app.logIn(credentials);
+      const addUserNow = await user.functions.addNapesite(id, fullName, email, phone_no, matric_no, department, amount)
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  // this code fetches data from the api file in the pages/ of this project. i stored the flutterwave_key in the api file for security reasons
   const getKeys = async () => {
     const res = await fetch(process.env.NEXT_PUBLIC_API_ROUTE + '/');
     const apiData = await res.json();
 
-    setKeys(apiData.flutterwave_key);
+    setKeys(apiData);
 
     console.log(apiData.flutterwave_key);
   }
@@ -55,8 +56,9 @@ const paymentForm = ({ name, age, apiKey }) => {
   }, [])
 
 
+  // this is the code to configure the flutterwave payment information
   const config = {
-    public_key: `${keys}`,
+    public_key: `${keys.flutterwave_key}`,
     tx_ref: "NAPES" + Date.now(),
     amount: data.amount,
     currency: 'NGN',
@@ -86,9 +88,12 @@ const paymentForm = ({ name, age, apiKey }) => {
         callback: (response) => {
           console.log(response);
           if (response.status === "successful") {
+            alert("PAYMENT SUCCESSFUL")
+            addUser(user.uid, response.customer.name, response.customer.email, response.customer.phone_number, data.matric_no, data.department, data.amount);
+            setData({ ...data, name: "", email: "", phone_number: "", amount: "", department: "", matric_no: "", phone_no: "" });
             closePaymentModal()
-
             router.push("/paymentSuccessful");
+
           } else {
             router.push("/unsuccessfulPayment")
           }

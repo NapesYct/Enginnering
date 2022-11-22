@@ -65,22 +65,22 @@ const Header = ({ modalControl }) => {
 
       <div className={`sm:hidden z-50 flex transition ease-linear duration-200 delay-100 sticky bottom-0 w-full h-16 items-center px-6 justify-between ${menuClicked ? "bg-blue-800" : "bg-gray-800"} shadow-md`}>
         <div onClick={clickMenu} className='space-y-1 cursor-pointer transition duration-200 delay-75 ease-linear'>
-          {menuClicked ? <ImCross color='white' size={20} /> : <MdMenu color='white' size={40} />}
+          {menuClicked ? <ImCross color='white' size={15} /> : <MdMenu color='white' size={30} />}
         </div>
         <img className='w-20' src="/images/napes.png" alt="" />
         <Link href="/dashboard">
           <div className='rounded-full cursor-pointer p-1 bg-white'>
-            <ImUser size={20} />
+            <ImUser size={15} />
           </div>
         </Link>
       </div>
 
 
-      <div className={`${menuClicked ? 'translate-x-0' : ' -translate-x-full'} bg-blue-900 z-50 rounded-tr-sm rounded-br-sm md:hidden text-white font-sans w-full space-x-5 absolute h-screen transition-transform duration-500 ease-in-out`}>
+      <div className={`${menuClicked ? 'translate-x-0' : ' -translate-x-full'} bg-blue-900 z-50 rounded-tr-sm rounded-br-sm md:hidden text-white font-sans w-full space-x-5 absolute h-full overflow-y-hidden transition-transform duration-500 ease-in-out`}>
         <div className='bg-blue-800 flex items-start space-x-3 py-5'>
           <img className='w-1/4 rounded-full' src="/images/css.jpg" alt="" />
           <div>
-            <h2 className='font-bold text-lg text-slate-100'>{oneUser?.firstName} {oneUser?.lastName}</h2>
+            <h2 className='font-bold text-lg text-slate-100'>{oneUser?.fullNames} {oneUser?.lastName}</h2>
             <p className='text-gray-200 text-sm'>{oneUser?.matric_no}</p>
           </div>
         </div>

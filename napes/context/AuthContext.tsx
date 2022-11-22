@@ -66,8 +66,6 @@ export const AuthContextProvider = ({ children }: { children: React.ReactNode })
     }
   }
 
-  console.log("My User Data: ", oneUser);
-
 
 
   // useEffect(() => {

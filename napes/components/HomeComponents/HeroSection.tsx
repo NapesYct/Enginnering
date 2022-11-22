@@ -65,18 +65,13 @@ const HeroSection = () => {
 
   return (
     <section className='bg-hero bg-no-repeat bg-cover flex justify-center text-white space-x-20 py-10 items-center w-full'>
-      <div className=' flex flex-col justify-around sm:justify-around h-60  w-full px-5 md:px-10 md:w-full lg:w-1/2'>
-        <h2 className='md:text-4xl sm:text-2xl text-2xl font-extrabold'>Enjoy Your Right Of Being A NAPESITE</h2>
-        <p className='text-lg sm:text-xl my-5 lg:my-0'>Pay your dues to enjoy unlimited benefits from NAPES and avoid denial of semester registration</p>
+      <div className=' flex flex-col sm:justify-around h-60  w-full px-5 md:px-10 md:w-full lg:w-1/2'>
+        <h2 className='md:text-4xl sm:text-2xl text-xl font-extrabold'>Enjoy Your Right Of Being A NAPESITE</h2>
+        <p className='sm:text-xl my-5 leading-6 lg:my-0'>Pay your dues to enjoy unlimited benefits from NAPES and avoid denial of semester registration</p>
         <div className='space-x-5 flex items-center '>
           <Link href="/paymentForm">
-            <a className='bg-red-600  text-white px-4 py-2 rounded hover:bg-green-800 shadow text-lg font-bold shadow-gray-800'>Pay Your Dues</a>
+            <a className='bg-red-600  text-white px-2 py-1 transition duration-200 delay-100 ease-in-out md:px-4 md:py-2 rounded hover:bg-green-800 shadow text-lg font-bold shadow-gray-800'>Pay Your Dues</a>
           </Link>
-          <div>
-            <p>{userData.name}</p>
-            <p>{userData.email}</p>
-            <p>{userData.phoneNumber}</p>
-          </div>
         </div>
       </div>
       <div className='hidden md:-mb-1.5 sm:block'>

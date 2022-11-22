@@ -45,7 +45,7 @@ const Footer = () => {
       </div>
       <div className='md:flex md:justify-between md:items-center md:py-5 md:px-10 text-white sm:block '>
         <p className='text-center mb-10 p-1'>Copyright &copy; 2022. All right reserved</p>
-        <p className='bg-white fixed w-full bottom-0 shadow-lg animate-pulse md:animate-none md:relative text-black text-center p-2 md:bg-transparent'>Developed By Mechatronics Engr Dept</p>
+        <p className='bg-gradient-to-r from-slate-800 via-purple-700 to-slate-800 font-bold text-sm text-white fixed w-full bottom-0 shadow animate-pulse md:animate-none md:relative text-center p-2 md:bg-transparent'>Developed By Mechatronics Engr Dept</p>
       </div>
     </footer>
   )
