@@ -1,6 +1,8 @@
 import React from 'react'
 import Header from '../components/HomeComponents/Header';
 import { useAuth } from '../context/AuthContext';
+// import myPdf from '../assets/myCV.pdf';
+
 
 
 
@@ -39,6 +41,10 @@ const dashboard = () => {
           <DashboardCard statusPrompt={"AMOUNT"} description={oneUser?.amount} />
           <DashboardCard statusPrompt={"MATRIC NO"} description={oneUser?.matric_no} />
           <DashboardCard statusPrompt={"DEPARTMENT"} description={oneUser?.department} />
+        </div>
+
+        <div>
+          {/* <iframe src={myPdf} width="100%" height="500px">Nice</iframe> */}
         </div>
       </div>
     </>

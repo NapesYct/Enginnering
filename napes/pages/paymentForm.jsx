@@ -4,7 +4,10 @@ import { addUser } from "../config/mongodb"
 import { useFlutterwave, closePaymentModal } from 'flutterwave-react-v3';
 import { useRouter } from 'next/router';
 import { useAuth } from '../context/AuthContext';
-import * as Realm from 'realm-web'
+import * as Realm from 'realm-web';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 // type Data = {
 //   name: string,
@@ -27,6 +30,12 @@ const paymentForm = ({ name, age, apiKey }) => {
 
   });
   const router = useRouter();
+
+  const [price, setPrice] = React.useState('');
+
+  const handleChange = (event) => {
+    setPrice(event.target.value);
+  };
 
 
   const addNapesite = async (id, fullName, email, phone_no, matric_no, department, amount) => {
@@ -60,7 +69,7 @@ const paymentForm = ({ name, age, apiKey }) => {
   const config = {
     public_key: `${keys.flutterwave_key}`,
     tx_ref: "NAPES" + Date.now(),
-    amount: data.amount,
+    amount: price,
     currency: 'NGN',
     payment_options: 'card',
     customer: {
@@ -153,6 +162,19 @@ const paymentForm = ({ name, age, apiKey }) => {
             <input className='input transition ease-linear duration-300 delay-150 focus:border-l-2 focus:bg-blue-100 focus:border-red-600' value={data.amount} onChange={(e) => setData({
               ...data, amount: e.target.value
             })} type="text" required />
+
+            <InputLabel id="demo-simple-select-label">Amount</InputLabel>
+            <Select
+              className='w-full'
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={price}
+              label="Amount"
+              onChange={handleChange}
+            >
+              <MenuItem value={1000}>1000</MenuItem>
+              <MenuItem value={1500}>1500</MenuItem>
+            </Select>
 
             <button type='submit' onClick={handlePayment} className='bg-red-500 py-2 text-center my-5 flex w-full items-center justify-center rounded shadow hover:bg-red-900 text-white'>Pay Now</button>
           </div>

@@ -49,7 +49,7 @@ const LoginModal = ({ registerModal, loginModal, modal }) => {
     <div className='bg-overlay fixed right-0 left-0 top-0 bottom-0 z-10'>
       <div className='-translate-y-1/2 -translate-x-1/2 left-1/2 fixed top-1/2 flex flex-col items-center justify-center'>
 
-        <form className='bg-white w-96 px-10 py-5 shadow-md rounded flex flex-col  justify-center space-y-5'>
+        <form className='bg-white w-80 px-10 py-5 shadow-md rounded flex flex-col  justify-center space-y-5'>
           <img className='w-1/3 mx-auto pb-2' src="/images/napes.png" alt="Napes Brand" />
           <h2 className={!LogErrorMessage && `text-2xl bg-red-600 px-5 w-full py-2 rounded shadow text-white font-bold text-center`}>{!LogErrorMessage && 'Login'}</h2>
           <h2 className={LogErrorMessage && `text-2xl bg-red-500 px-5 py-2 rounded shadow text-white font-bold text-center`}>{LogErrorMessage}</h2>

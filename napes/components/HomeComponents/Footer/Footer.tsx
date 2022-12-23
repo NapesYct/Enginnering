@@ -43,9 +43,9 @@ const Footer = () => {
           <p>sdfsdf</p>
         </div> */}
       </div>
-      <div className='md:flex md:justify-between md:items-center md:py-5 md:px-10 text-white sm:block '>
-        <p className='text-center mb-10 p-1'>Copyright &copy; 2022. All right reserved</p>
-        <p className='bg-gradient-to-r from-slate-800 via-purple-700 to-slate-800 font-bold text-sm text-white fixed w-full bottom-0 shadow animate-pulse md:animate-none md:relative text-center p-2 md:bg-transparent'>Developed By Mechatronics Engr Dept</p>
+      <div className='md:flex md:justify-between md:items-center md:px-5 text-white sm:block '>
+        <p className='text-center mb-10 md:mb-0 p-1'>Copyright &copy; 2022 NAPES</p>
+        <p className='bg-gradient-to-r from-slate-800 via-purple-700 to-slate-800 font-bold text-sm text-white fixed  bottom-0 w-full md:w-auto shadow animate-pulse md:animate-none md:relative text-center p-2 md:bg-none'>Developed By Mechatronics Engr Dept</p>
       </div>
     </footer>
   )
