@@ -31,7 +31,7 @@ const paymentForm = ({ name, age, apiKey }) => {
   });
   const router = useRouter();
 
-  const [price, setPrice] = React.useState('');
+  const [price, setPrice] = React.useState('Select Price');
 
   const handleChange = (event) => {
     setPrice(event.target.value);
@@ -98,7 +98,7 @@ const paymentForm = ({ name, age, apiKey }) => {
           console.log(response);
           if (response.status === "successful") {
             alert("PAYMENT SUCCESSFUL")
-            addUser(user.uid, response.customer.name, response.customer.email, response.customer.phone_number, data.matric_no, data.department, data.amount);
+            addUser(response.tx_ref, response.customer.name, response.customer.email, response.customer.phone_number, data.matric_no, data.department, data.amount);
             setData({ ...data, name: "", email: "", phone_number: "", amount: "", department: "", matric_no: "", phone_no: "" });
             closePaymentModal()
             router.push("/paymentSuccessful");
@@ -158,18 +158,13 @@ const paymentForm = ({ name, age, apiKey }) => {
               ...data, department: e.target.value
             })} type="type" required />
 
-            <label className='text-xl' htmlFor="departmenet">Amount: </label>
-            <input className='input transition ease-linear duration-300 delay-150 focus:border-l-2 focus:bg-blue-100 focus:border-red-600' value={data.amount} onChange={(e) => setData({
-              ...data, amount: e.target.value
-            })} type="text" required />
-
-            <InputLabel id="demo-simple-select-label">Amount</InputLabel>
+            <InputLabel id="demo-simple-select-label">Select Amount</InputLabel>
             <Select
               className='w-full'
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              value={price}
-              label="Amount"
+              value={1500}
+              label={1500}
               onChange={handleChange}
             >
               <MenuItem value={1000}>1000</MenuItem>

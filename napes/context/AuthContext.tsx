@@ -132,13 +132,14 @@ export const AuthContextProvider = ({ children }: { children: React.ReactNode })
     }
   }
 
-  if (user) {
-    fetchAllProducts(user.uid)
+  // if (user) {
+  //   fetchAllProducts(user.uid)
 
-  } else {
-    console.log("No User Again!!");
+  // }
+  // else {
+  //   console.log("No User Again!!");
 
-  }
+  // }
 
 
   const logout = async () => {
