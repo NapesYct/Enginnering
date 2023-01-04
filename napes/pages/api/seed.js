@@ -23,16 +23,6 @@ async function handler(req, res) {
     res.status(500).json({ error: error.message })
   }
 
-
-  // await db.connect();
-  // // await User.deleteMany();
-  // // await User.insertMany(data.user);
-  // const payment = await Payment.create(res.body)
-  // console.log(res.body);
-  // await db.disconnect();
-  // // res.send({ message: "seed successfully" })
-
-  // return res.json({ payment })
 }
 
 export default handler;
