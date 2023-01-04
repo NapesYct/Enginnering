@@ -35,7 +35,7 @@ const news = ({ news }: MyNews) => {
       <div className=''>
         <div className='w-full my-10'>
           <div className='bg-news bg-no-repeat bg-cover bg-center flex justify-left text-white space-x-20 py-20 items-center w-full'>
-            <div className='w-1/2 md:text-4xl py-10 leading-20 pl-10 border-b-2'>
+            <div className='w-1/2 md:text-4xl pb-10 leading-20 pl-10 border-b-2'>
               <h1>The National Association Of Polytechnic Engineering Students at Yabatech News & Info</h1>
             </div>
           </div>

@@ -10,7 +10,7 @@ const Departments = () => {
       <section className='py-10 px-5 md:py-10 md:px-20'>
         <div className='flex justify-between items-center pb-5'>
           <div className=' w-full md:text-start'>
-            <h2 className='font-bold text-lg md:text-3xl capitalize font-sans text-sky-900'>Explore Engineering Departments</h2>
+            <h2 className=' text-lg md:text-3xl capitalize font-sans text-sky-900'>Explore Engineering Departments</h2>
             <p className='font-sans text-sm md:text-lg text-gray-600'>Discover the list of all engineering departments</p>
           </div>
           <Link href={'/department'} >
@@ -24,7 +24,7 @@ const Departments = () => {
           <DepartmentCard image={"/images/departments/computerE.jpg"} name='Computer Engineering' />
         </div>
         <Link href={'/department'} >
-          <p className='text-center mt-5 font-bold font-sans text-md sm:hidden cursor-pointer hover:border-b-2'>See all &gt;&gt;</p>
+          <p className='text-center mt-5  font-sans text-md sm:hidden cursor-pointer hover:border-b-2'>See all &gt;&gt;</p>
         </Link>
       </section>
     </>

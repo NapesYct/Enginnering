@@ -7,7 +7,7 @@ interface Address {
 }
 const FooterContact: React.FC<Address> = ({ address, iconName }) => {
   return (
-    <div className='flex space-x-2 items-center sm:justify-start'>
+    <div className='flex space-x-2 text-sm items-center sm:justify-start'>
       <span>{iconName}</span>
       <span>{address}</span>
     </div>

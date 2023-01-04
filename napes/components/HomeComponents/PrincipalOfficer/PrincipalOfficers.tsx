@@ -15,7 +15,7 @@ const PrincipalOfficers = ({ officersData }: Props) => {
     <section className='bg-slate-100 pt-5 px-5'>
       <div className='flex justify-between items-center md:px-16'>
         <div className='md:text-start w-full'>
-          <h2 className='font-bold text-lg md:text-3xl capitalize font-sans text-sky-900'>Meet All Your Principal Officers</h2>
+          <h2 className=' text-lg md:text-3xl capitalize font-sans text-sky-900'>Meet All Your Principal Officers</h2>
           <p className='font-sans text-sm md:text-lg text-sky-900'>Get to know all your Principal Officers in NAPES</p>
         </div>
         <Link href={'/principalOfficers'} >

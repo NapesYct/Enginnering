@@ -36,16 +36,16 @@ const Header = ({ modalControl }) => {
         </div>
         <div className='hidden md:flex flex-col justify-center items-center'>
           <div className='flex flex-col items-end justify-center'>
-            <h1 className={`hidden md:text-xl md:block  lg:block lg:text-3xl font-semibold`}>National Association Of Polytechnic Engineering Student (NAPES)</h1>
+            <h1 className={`hidden md:text-xl md:block  lg:block lg:text-3xl`}>National Association Of Polytechnic Engineering Student (NAPES)</h1>
             <span className='hidden md:block text-red-500 font-bold '>YCT CHAPTER</span>
           </div>
           <nav className='flex items-start'>
             <ul className='hidden font-sans md:flex sm:flex items-end lg:items-end space-x-12 text-xl'>
-              <li className='text-gray-600 hover:text-green-800 hover:border-l-2 hover:pl-2 transition-all hover:border-red-600'><Link href="/">Home</Link></li>
-              <li className='text-gray-600 hover:text-green-800 hover:border-l-2 hover:pl-2 transition-all hover:border-red-600'><Link href="/executives">Executives</Link></li>
-              <li className='text-gray-600 hover:text-green-800 hover:border-l-2 hover:pl-2 transition-all hover:border-red-600'><Link href="/principalOfficers">Principal Officers</Link></li>
-              <li className='text-gray-600 hover:text-green-800 hover:border-l-2 hover:pl-2 transition-all hover:border-red-600'><Link href="/news">News Updates</Link></li>
-              <li className='text-gray-600 hover:text-green-800 hover:border-l-2 hover:pl-2 transition-all hover:border-red-600'><Link href="/contact">Contact</Link></li>
+              <li className='text-sm text-gray-600 hover:text-green-800 hover:border-l-2 hover:pl-2 transition-all hover:border-red-600'><Link href="/">Home</Link></li>
+              <li className='text-sm text-gray-600 hover:text-green-800 hover:border-l-2 hover:pl-2 transition-all hover:border-red-600'><Link href="/executives">Executives</Link></li>
+              <li className='text-sm text-gray-600 hover:text-green-800 hover:border-l-2 hover:pl-2 transition-all hover:border-red-600'><Link href="/principalOfficers">Principal Officers</Link></li>
+              <li className='text-sm text-gray-600 hover:text-green-800 hover:border-l-2 hover:pl-2 transition-all hover:border-red-600'><Link href="/news">News Updates</Link></li>
+              <li className='text-sm text-gray-600 hover:text-green-800 hover:border-l-2 hover:pl-2 transition-all hover:border-red-600'><Link href="/contact">Contact</Link></li>
             </ul>
             <div>
               {user ?
@@ -100,37 +100,37 @@ const Header = ({ modalControl }) => {
           <Link href="/">
             <div className='flex w-full cursor-pointer space-x-4 items-center'>
               <IoHome />
-              <p>Home</p>
+              <p className='text-sm'>Home</p>
             </div>
           </Link>
           <Link href="/news">
             <div className='flex w-full cursor-pointer  space-x-4 items-center'>
               <MdLocalFireDepartment />
-              <p>News & Updates</p>
+              <p className='text-sm'>News & Updates</p>
             </div>
           </Link>
           <Link href="/executives" >
             <div className='flex cursor-pointer w-full space-x-4 items-center'>
               <MdPeopleAlt />
-              <p>Executives</p>
+              <p className='text-sm'>Executives</p>
             </div>
           </Link>
           <Link href="/principalOfficers">
             <div className='flex cursor-pointer w-full space-x-4 items-center'>
               <IoIosPeople />
-              <p>Principal Officers</p>
+              <p className='text-sm'>Principal Officers</p>
             </div>
           </Link>
           <Link href="/news">
             <div className='flex cursor-pointer w-full space-x-4 items-center'>
               <IoNewspaperSharp />
-              <p>News & Event</p>
+              <p className='text-sm'>News & Event</p>
             </div>
           </Link>
           <Link href="/contact">
             <div className='flex cursor-pointer  w-full space-x-4 items-center'>
               <MdContacts />
-              <p>Contact</p>
+              <p className='text-sm'>Contact</p>
             </div>
           </Link>
         </div>

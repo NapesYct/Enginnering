@@ -6,7 +6,7 @@ const NewsEvent = () => {
   return (
     <section className='bg-slate-100 p-5'>
       <div className='flex items-center justify-between py-5'>
-        <h2 className='md:text-3xl text-xl font-bold'>News & Events</h2>
+        <h2 className='md:text-3xl text-xl'>News & Events</h2>
         <Link href={"/news"}>
           <p className='text-md cursor-pointer font-semibold text-gray-400'>All news & events &gt;&gt;</p>
         </Link>
