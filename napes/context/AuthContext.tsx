@@ -3,10 +3,21 @@ import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndP
 import { auth } from "../config/firebase";
 import { useRouter } from "next/router";
 import * as Realm from 'realm-web';
+import { addCurrentUser, updateUsers } from "../pages";
 
 const AuthContext = createContext<any>({});
 
 export const useAuth = () => useContext(AuthContext)
+type Props = {
+  id: string
+  amount: string
+  department: string
+  fullName: string
+  email: string
+  phoneNumber: number
+  matric_no: string
+  paymentStatus: string
+}
 
 export const AuthContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<any>(null);
@@ -14,6 +25,7 @@ export const AuthContextProvider = ({ children }: { children: React.ReactNode })
   const [oneUser, setOneUser] = useState([]);
   const [loader, setLoader] = useState(false)
   const [isExist, setIsExist] = useState(false);
+  const [currentUser, setCurrentUser] = useState<Props>();
 
   const [loading, setLoading] = useState(true);
   const [RegErrorMessage, setErrorMessage] = useState("");
@@ -22,6 +34,7 @@ export const AuthContextProvider = ({ children }: { children: React.ReactNode })
   const [data, setData] = useState({
     firstName: '',
     lastName: '',
+    fullName: '',
     email: '',
     department: '',
     matric: '',
@@ -48,39 +61,11 @@ export const AuthContextProvider = ({ children }: { children: React.ReactNode })
   }, []);
 
 
-  const fetchAllProducts = async (userId: string) => {
-    const res = await fetch(process.env.NEXT_PUBLIC_API_ROUTE + '/');
-    const data = await res.json();
-
-    const APP_ID = data.apiKey;
-    const app = new Realm.App({ id: APP_ID });
-    const credentials = Realm.Credentials.anonymous();
-
-    try {
-      const user = await app.logIn(credentials);
-      const myUser = await user.functions.getOneUser(userId)
-
-      setOneUser(myUser);
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-
-
-  // useEffect(() => {
-  //   if(user) {
-  //     console.log(user);
-  //   } else{
-  //     console.log("No user");
-
-  //   }
-  // }, [])
-
   const register = async (email: string, password: string) => {
     try {
       const cred = await createUserWithEmailAndPassword(auth, email, password);
       // addUser(cred.user.uid, data.firstName, data.lastName, `${cred.user.email}`, data.matric, data.department);
+
     } catch (error: any) {
       console.log(error.message);
 
@@ -94,6 +79,9 @@ export const AuthContextProvider = ({ children }: { children: React.ReactNode })
         case 'auth/missing-email':
           setErrorMessage("Please Enter An Email Address");
           break;
+        case 'auth/user-not-found':
+          setErrorMessage("You Have Not Registered");
+          break;
         case 'auth/invalid-email':
           setErrorMessage("Please Enter A Valid Email Address");
           break;
@@ -105,6 +93,11 @@ export const AuthContextProvider = ({ children }: { children: React.ReactNode })
   const login = async (email: string, password: string) => {
     try {
       const cred = await signInWithEmailAndPassword(auth, email, password);
+      const res = await fetch(`api/findUser?id=${cred.user.uid}`);
+      const user = await res.json();
+      if (user?.id === cred.user.uid) {
+        setCurrentUser(user)
+      }
       return [];
     } catch (error: any) {
       setLoader(false);
@@ -147,7 +140,7 @@ export const AuthContextProvider = ({ children }: { children: React.ReactNode })
     setLoader(false)
     await signOut(auth)
   }
-  return <AuthContext.Provider value={{ user, oneUser, login, register, logout, setName, name, data, setData, RegErrorMessage, LogErrorMessage, setLoader, loader }}>
+  return <AuthContext.Provider value={{ user, oneUser, login, register, logout, setName, name, data, setData, RegErrorMessage, LogErrorMessage, setLoader, loader, currentUser, setCurrentUser }}>
     {loading ? null : children}
   </AuthContext.Provider>
 }

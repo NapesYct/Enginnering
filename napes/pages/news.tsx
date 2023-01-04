@@ -32,13 +32,16 @@ const news = ({ news }: MyNews) => {
   return (
     <>
       <Header modalControl={undefined} />
-      <div className='md:mx-20'>
-        <div className='grid grid-cols-2 gap-5 mb-10 mt-5'>
-          <NewsPageCard title="Peter Thiels VC Found Invests Million into Bitcoin, Market Reacts" author="Olawole" date="jan 25, 2018" />
-          <NewsPageCard title="Peter Thiels VC Found Invests Million into Bitcoin, Market Reacts" author="Olawole" date="jan 25, 2018" />
+      <div className=''>
+        <div className='w-full my-10'>
+          <div className='bg-news bg-no-repeat bg-cover bg-center flex justify-left text-white space-x-20 py-20 items-center w-full'>
+            <div className='w-1/2 md:text-4xl py-10 leading-20 pl-10 border-b-2'>
+              <h1>The National Association Of Polytechnic Engineering Students at Yabatech News & Info</h1>
+            </div>
+          </div>
 
         </div>
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-5'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-5 md:mx-20'>
           <NewsPageCard title="Peter Thiels VC Found Invests Million into Bitcoin, Market Reacts" author="Olawole" date="jan 25, 2018" />
           <NewsPageCard title="Peter Thiels VC Found Invests Million into Bitcoin, Market Reacts" author="Olawole" date="jan 25, 2018" />
           <NewsPageCard title="Peter Thiels VC Found Invests Million into Bitcoin, Market Reacts" author="Olawole" date="jan 25, 2018" />

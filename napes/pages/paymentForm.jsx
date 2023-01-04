@@ -8,6 +8,7 @@ import * as Realm from 'realm-web';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { addCurrentUser } from '.';
 
 // type Data = {
 //   name: string,
@@ -69,7 +70,7 @@ const paymentForm = ({ name, age, apiKey }) => {
   const config = {
     public_key: `${keys.flutterwave_key}`,
     tx_ref: "NAPES" + Date.now(),
-    amount: price,
+    amount: 1000,
     currency: 'NGN',
     payment_options: 'card',
     customer: {
@@ -94,11 +95,10 @@ const paymentForm = ({ name, age, apiKey }) => {
     } else {
       setData({ ...data, success: true })
       handleFlutterPayment({
-        callback: (response) => {
-          console.log(response);
+        callback: async (response) => {
           if (response.status === "successful") {
-            alert("PAYMENT SUCCESSFUL")
-            addUser(response.tx_ref, response.customer.name, response.customer.email, response.customer.phone_number, data.matric_no, data.department, data.amount);
+            // addCurrentUser(response.customer.name, response.customer.email, response.customer.phone_number, data.matric_no, data.department, data.amount, true);
+            await addCurrentUser(`${user.uid}`, response.customer.name, response.customer.email, response.customer.phone_number, data.matric_no, data.department, data.amount, true);
             setData({ ...data, name: "", email: "", phone_number: "", amount: "", department: "", matric_no: "", phone_no: "" });
             closePaymentModal()
             router.push("/paymentSuccessful");

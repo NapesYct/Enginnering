@@ -11,7 +11,7 @@
 
 
 .input {
-  @apply w-full pl-2 py-2 shadow rounded border-b-2 border-gray-300 outline-none
+  @apply w-full pl-2 py-2 shadow rounded border-b-2 border-b-black border-gray-300 outline-none
 }
 
 .button {

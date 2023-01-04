@@ -10,6 +10,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         'hero': "url('../public/images/home.jpg')",
+        'news': "url('../public/images/news.jpg')",
         'bgMechatronics': "url('../public/images/departments/mehatronicsE.jpg')",
         'bgMechanical': "url('../public/images/departments/mechanicalE.jpg')",
         'bgElectrical': "url('../public/images/departments/electricalE.jpg')",

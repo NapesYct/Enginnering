@@ -10,8 +10,8 @@ import { IoNewspaperSharp, IoHome } from "react-icons/io5"
 
 const Header = ({ modalControl }) => {
   const navRef = React.useRef();
-  const { user, logout, data, oneUser } = useAuth();
-  // console.log(oneUser);
+  const { user, logout, data, currentUser } = useAuth();
+  // console.log(currentUser);
 
 
   const [menuClicked, setMenuClicked] = useState(false);
@@ -44,15 +44,27 @@ const Header = ({ modalControl }) => {
               <li className='text-gray-600 hover:text-green-800 hover:border-l-2 hover:pl-2 transition-all hover:border-red-600'><Link href="/">Home</Link></li>
               <li className='text-gray-600 hover:text-green-800 hover:border-l-2 hover:pl-2 transition-all hover:border-red-600'><Link href="/executives">Executives</Link></li>
               <li className='text-gray-600 hover:text-green-800 hover:border-l-2 hover:pl-2 transition-all hover:border-red-600'><Link href="/principalOfficers">Principal Officers</Link></li>
+              <li className='text-gray-600 hover:text-green-800 hover:border-l-2 hover:pl-2 transition-all hover:border-red-600'><Link href="/news">News Updates</Link></li>
               <li className='text-gray-600 hover:text-green-800 hover:border-l-2 hover:pl-2 transition-all hover:border-red-600'><Link href="/contact">Contact</Link></li>
             </ul>
-            <div className='ml-10 transition font-sans text-sm duration-200 ease-in bg-red-600 px-2 py-1 cursor-pointer rounded shadow-lg text-slate-100 hover:bg-white hover:border hover:text-red-600'>
-              {user ? <div>
-                <span onClick={logoutUser}>Logout</span>
+            <div>
+              {user ?
+                <div className='flex items-center space-x-6 ml-10'>
 
-              </div>
+                  <div className='text-right transition font-sans text-sm duration-200 ease-in bg-red-600 px-2 py-1 cursor-pointer rounded shadow-lg text-slate-100 hover:bg-white hover:border hover:text-red-600'>
+                    <span onClick={logoutUser}>Logout</span>
+                  </div>
+                  <Link href="/dashboard">
+                    <div className='rounded-full cursor-pointer p-1 bg-slate-900'>
+                      <ImUser size={20} color='#fff' />
+                    </div>
+                  </Link>
+
+                </div>
                 :
-                <span onClick={show} >Login/Register</span>
+                <div className='ml-10 transition font-sans text-sm duration-200 ease-in bg-red-600 px-2 py-1 cursor-pointer rounded shadow-lg text-slate-100 hover:bg-white hover:border hover:text-red-600'>
+                  <span onClick={show} >Login/Register</span>
+                </div>
               }
 
             </div>
@@ -63,7 +75,7 @@ const Header = ({ modalControl }) => {
         </div>
       </div>
 
-      <div className={`sm:hidden z-50 flex transition ease-linear duration-200 delay-100 sticky bottom-0 w-full h-16 items-center px-6 justify-between ${menuClicked ? "bg-blue-800" : "bg-gray-800"} shadow-md`}>
+      <div className={`sm:hidden z-50 flex transition ease-linear duration-200 delay-100 sticky bottom-0 w-full h-16 items-center px-6 justify-between ${menuClicked ? "bg-slate-800" : "bg-slate-700"} shadow-md`}>
         <div onClick={clickMenu} className='space-y-1 cursor-pointer transition duration-200 delay-75 ease-linear'>
           {menuClicked ? <ImCross color='white' size={15} /> : <MdMenu color='white' size={30} />}
         </div>
@@ -76,12 +88,12 @@ const Header = ({ modalControl }) => {
       </div>
 
 
-      <div className={`${menuClicked ? 'translate-x-0' : ' -translate-x-full'} bg-blue-900 z-50 rounded-tr-sm rounded-br-sm md:hidden text-white font-sans w-full space-x-5 absolute h-full overflow-y-hidden transition-transform duration-500 ease-in-out`}>
-        <div className='bg-blue-800 flex items-start space-x-3 py-5'>
+      <div className={`${menuClicked ? 'translate-x-0' : ' -translate-x-full'} bg-slate-600 z-50 rounded-tr-sm rounded-br-sm md:hidden text-white font-sans w-full space-x-5 absolute h-full overflow-y-hidden transition-transform duration-500 ease-in-out`}>
+        <div className='bg-slate-600 border-b-2 flex items-start space-x-3 py-5'>
           <img className='w-1/4 rounded-full' src="/images/css.jpg" alt="" />
           <div>
-            <h2 className='font-bold text-lg text-slate-100'>{oneUser?.fullNames} {oneUser?.lastName}</h2>
-            <p className='text-gray-200 text-sm'>{oneUser?.matric_no}</p>
+            <h2 className='font-bold text-lg text-slate-100'>{currentUser?.fullName}</h2>
+            <p className='text-gray-200 text-sm'>{currentUser?.matric_no}</p>
           </div>
         </div>
         <div className='flex flex-col items-start justify-between space-y-8 text-xl mt-4'>
@@ -91,10 +103,10 @@ const Header = ({ modalControl }) => {
               <p>Home</p>
             </div>
           </Link>
-          <Link href="/department">
+          <Link href="/news">
             <div className='flex w-full cursor-pointer  space-x-4 items-center'>
               <MdLocalFireDepartment />
-              <p>Department</p>
+              <p>News & Updates</p>
             </div>
           </Link>
           <Link href="/executives" >
@@ -121,6 +133,8 @@ const Header = ({ modalControl }) => {
               <p>Contact</p>
             </div>
           </Link>
+        </div>
+        <div>
         </div>
         <div className='bg-red-700 mt-5 mx-auto w-1/3 cursor-pointer py-2 flex justify-center rounded-md shadow'>
           <p onClick={logoutUser} className="cursor-pointer">Logout</p>

@@ -4,6 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import Spinner from './Spinner';
 import { useRouter } from 'next/router';
 import { addUser } from '../config/mongodb';
+import { addCurrentUser } from '../pages';
 
 // import { FidgetSpinner } from 'react-loader-spinner';
 
@@ -37,8 +38,8 @@ const RegisterModal = ({ modal, registerModal, loginModal }) => {
     setLoader(true);
 
     try {
+      await register(data.email, data.password);
 
-      await register(data.email, data.password)
       if (user) {
         router.push("/registerSuccess");
       }
@@ -60,8 +61,8 @@ const RegisterModal = ({ modal, registerModal, loginModal }) => {
           <h2 className={RegErrorMessage && `text-2xl bg-red-500 px-5 py-2 rounded shadow text-white font-bold text-center`}>{RegErrorMessage}</h2>
           <div className='flex flex-col'>
             <label className='text-xl' htmlFor="name">Full Name: </label>
-            <input className='input transition ease-linear duration-300 delay-150 focus:border-l-2 focus:bg-blue-100 focus:border-red-600' value={data.firstName} onChange={(e) => setData({
-              ...data, firstName: e.target.value
+            <input className='input transition ease-linear duration-300 delay-150 focus:border-l-2 focus:bg-blue-100 focus:border-red-600' value={data.fullName} onChange={(e) => setData({
+              ...data, fullName: e.target.value
             })} type="text" required />
           </div>
 
@@ -69,6 +70,20 @@ const RegisterModal = ({ modal, registerModal, loginModal }) => {
             <label className='text-xl' htmlFor="departmenet">Email: </label>
             <input className='input transition ease-linear duration-300 delay-150 focus:border-l-2 focus:bg-blue-100 focus:border-red-600' value={data.email} onChange={(e) => setData({
               ...data, email: e.target.value
+            })} type="text" required />
+          </div>
+
+          <div>
+            <label className='text-xl' htmlFor="departmenet">Department: </label>
+            <input className='input transition ease-linear duration-300 delay-150 focus:border-l-2 focus:bg-blue-100 focus:border-red-600' value={data.department} onChange={(e) => setData({
+              ...data, department: e.target.value
+            })} type="text" required />
+          </div>
+
+          <div>
+            <label className='text-xl' htmlFor="departmenet">Matric No: </label>
+            <input className='input transition ease-linear duration-300 delay-150 focus:border-l-2 focus:bg-blue-100 focus:border-red-600' value={data.matric} onChange={(e) => setData({
+              ...data, matric: e.target.value
             })} type="text" required />
           </div>
 

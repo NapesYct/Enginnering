@@ -23,7 +23,7 @@ const principalOfficers = ({ principalOfficers }: Props) => {
             principalOfficers.map((data, index) => {
               const { name, office, description, mainImage } = data;
               return <div key={data._id}>
-                <PrincipalOfficersCard avatar={urlFor(mainImage).url()} title={office} name={name} desc={description} bgColor={'bg-slate-800'} />
+                <PrincipalOfficersCard avatar={urlFor(mainImage).url()} title={office} name={name} desc={description} bgColor={'bg-slate-600'} />
               </div>
             })
           }
